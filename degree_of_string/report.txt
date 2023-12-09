@@ -1,0 +1,22 @@
+Q: What is the time complexity of your implementation, and provide a justification for it?
+   Reflect on the worst-case time complexity represented in Big O notation.
+
+A:
+Time Complexity: 
+  O(n^3), n = length of string
+Explanation: 
+  My implementation works by iterating over every possible substring. The time complexity of
+  this is O(n^2) since it is a nested for loop in which both iterate over the length of the
+  string (n). Then, on every substring I perform a function to find the degree of the substring.
+  This function takes O(n) time since it iterates over every character in the substring once.
+  Since I have to do this to every possible substring once in order to verify that I found the
+  shortest possble substring with the same degree, the worst case time complexity always occurs
+  which is again, O(n^3).
+
+Q: What led you to choose the particular data structure for your implementation?
+
+A: 
+  The only data structure I really used was a map. This was used to find the degree of any string.
+  I used this because it made it easy to tally up the occurences of each character, and also allowed for
+  an easy traversal to find the maximum frequency to provide the degree of the string. I considered using
+  a minHeap, but this wasn't as easy to use for tallying up the occurences.

@@ -1,0 +1,22 @@
+Q: What is the time complexity of your implementation, and provide a justification for it?
+   Reflect on the worst-case time complexity represented in Big O notation.
+
+A: Let V = Total # of Verticies, E = Total # of Edges ( edges.size() )
+   Time Complexity = O(V * E)
+   In this program, I implemented the Breadth First Search (BFS) algorithm. The search starts by adding the source vertex to a queue 
+   and then looping continuously until the queue is empty. Since a vertex is only added to the queue if it hasn't been visited and 
+   there is a path to it from the original source vertex, each vertex will only be added to the queue once. As a result, the time 
+   complexity of this loop is O(V). Inside of this O(V) loop, the program iterates over the edge list to find all edges originating
+   from the current source vertex. Since this loops over the entire edge list, the time complexity of this loop is O(E). Finally, 
+   becuase the O(E) loop is nested inside of the O(V) loop, the resulting time complexity is O(V * E).  The worst-case of this would be
+   a complete graph since it would maximize the value of E.
+
+Q: What led you to choose the particular data structure for your implementation?
+
+A: Usually, with BFS, the time complexity is O(V + E). However, I didn't feel the need to create a new graph representation from the
+   edge list and as a result, each edge is iterated over every time, rather than just the adjacent edges of the current vertex.
+   Although it is very minimal, if I were to change the edge list to a adjacency list or adjacency matrix, it would take up more space
+   in the program. The queue is used to store the next vertex to visit. Since it is 'Breadth First', it is important to visit nodes
+   level by level. In order to implement this, a FIFO data structure is necessary so that all nodes in the current layer are visited
+   before visiting the nodes in the next layer. I also used an array to represent which nodes have already been visited. Since the label
+   for each vertex was an integer 0 - n-1, I didn't have to use a map and could just use a simple boolean array. 

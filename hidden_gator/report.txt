@@ -1,0 +1,21 @@
+Q: What is the time complexity of your implementation, and provide a justification for it?
+   Reflect on the worst-case time complexity represented in Big O notation.
+
+A:  Let r = # of knowledge relations, n = # of students.
+    Time Complexity = O(r * log(n) + n * log(n)). My program first iterates through all of the knowledge relations
+    and the first student in the relation is inserted into a map. Since map insertion is O(log(n)), and it is possible
+    for every student to have at least one knowledge relation, the complexity of this code is O(r * log(n)). Then,
+    in order to get the potential gators, the program iterates over all n students and performs a search of the map.
+    This has a time complexity of O(n * log(n)). Since the comparison between r and n is unknown, the resulting overall
+    time complexity is O(r * log(n) + n * log(n)). However, there is a case where every student is a potential gator 
+    and there are no knowledge relations. This would result in a vector insertion for each student while iterating over
+    each student. This would result in an overall time complexity of O(n^2) for the potential gator checking. Since
+    this happens when there are no recurrence relations, r = 0, so the worst-case time complexity is O(n^2).
+
+Q: What led you to choose the particular data structure for your implementation?
+
+A: I used a sort of adjacency matrix in my implementation. However, instead of the map having vectors for values,
+   I used sets. I used this data structure since it is easy to represent who each student knows. Also, when checking
+   to make sure that each student knows the gator, I can search each set in O(log(n)) time, making it time efficient.
+   I chose an adjacency list over an adjacency matrix since it would likely not be a dense graph so a list is much more
+   space efficient. Overall, the map and set data structures were used since common operations are O(log(n)).

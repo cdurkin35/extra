@@ -1,0 +1,23 @@
+Report
+
+Q: What is the time complexity of your implementation, and provide a justification for it? Reflect on the worst-case
+   time complexity represented in Big O notation.
+
+A: The time complexity of my implementation is O(n^4 * log(n)). This is because there are four nested for loops. Three
+   of these nested for loops have an individual time complexity of O(n + log(n)), with the n representing the for loop
+   that is nested inside of it, and the log(n) representing the set deletion. However, you keep the dominant term so
+   for these loops, their individual time complexity is O(n). Then, the final loop performs a set insertion n times, so
+   it has a complexity of O(n * log(n)). Thus, the resulting time complexity is O(n * n * n * n * log(n)). The worst
+   case scenario would be an input string of all odd digits with no zeros, and would have this complexity of
+   O(n^4 * log(n)). However, in instances with even numbers and zeros, the time complexity wouldn't be this
+   worst case since the numbers with leading zeros would be skipped and when the even numbers are the last digit, it
+   would not result in a set insertion. Looking back on it, this worst-case time complexity is quite large.
+
+Q: What led you to choose the particular data structure for your implementation?
+
+A: I used two sets in my implementation. The first set was for keeping track of the valid combinations of four digits.
+     I chose a set for this because it made it easy to prevent duplicates and would automatically sort the valid
+     combinations. My next set was to keep track of numbers already used in the combinations. I used sets because I knew
+     that I would require a lot of deletion and insertion, and as a result, I needed a data structure that was fast with
+     these operations. Using a set here also allowed for an easy way to keep track of which numbers are available for
+     the remaining digits in the combination.
